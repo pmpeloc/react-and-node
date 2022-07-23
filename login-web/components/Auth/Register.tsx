@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import clientApi from '../../config/axios';
 
 import classes from './styles/Register.module.css';
 
@@ -13,15 +13,16 @@ export const RegisterComponent: FC = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const test = async () => {
-    const res = await axios.get('/products/3');
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const res = await clientApi.get('/products/3');
     console.log(res);
   };
 
   return (
     <div className={classes.container}>
       <div className={classes.formContainer}>
-        <form onSubmit={() => {}}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='email'>Ingrese Email</label>
           <input
             placeholder='Ingrese su email'
@@ -38,7 +39,7 @@ export const RegisterComponent: FC = () => {
             value={values.password}
             onChange={(e) => setValues({ ...values, password: e.target.value })}
           />
-          <button onClick={test}>Crear Cuenta</button>
+          <button type='submit'>Crear Cuenta</button>
         </form>
       </div>
     </div>
