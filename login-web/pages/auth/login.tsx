@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
+import { LoginComponent } from '../../components/Auth';
 
-const Login: NextPage = () => {
-  return <h1>Login Page</h1>;
+const Register: NextPage = () => {
+  return <LoginComponent />;
 };
 
-export default Login;
+export default Register;
