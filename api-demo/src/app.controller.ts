@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
-import { AuthGuard } from '@nestjs/passport';
 import { HasRoles } from './auth/has-roles.decorator';
 import { UserRole } from './users/entities/user.entity';
 import { RolesGuard } from './auth/roles.guard';
